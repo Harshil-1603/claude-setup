@@ -1,5 +1,6 @@
 // src/cli/mod.rs
 pub mod install;
+pub mod workflow;
 
 use clap::{Parser, Subcommand};
 use crate::error::Result;
@@ -22,6 +23,12 @@ pub enum Commands {
     Skill {
         #[command(subcommand)]
         action: SkillCommands,
+    },
+
+    /// Manage workflows
+    Workflow {
+        #[command(subcommand)]
+        action: workflow::WorkflowAction,
     },
 }
 
@@ -55,7 +62,6 @@ pub fn dispatch(cli: Cli) -> Result<()> {
     match cli.command {
         Commands::Install(args) => install::run(args),
         Commands::Skill { action } => {
-            // Skill commands will be implemented in Task 5-7
             match action {
                 SkillCommands::List => {
                     Ok(crate::skills::installer::list_installed()?)
@@ -71,5 +77,6 @@ pub fn dispatch(cli: Cli) -> Result<()> {
                 }
             }
         }
+        Commands::Workflow { action } => workflow::run(action),
     }
 }
