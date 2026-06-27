@@ -34,3 +34,25 @@ pub fn load(path: &PathBuf) -> anyhow::Result<WorkflowInstance> {
     let instance: WorkflowInstance = serde_json::from_str(&content)?;
     Ok(instance)
 }
+
+/// List all workflow progress files.
+pub fn list_progress_files() -> anyhow::Result<Vec<PathBuf>> {
+    let workflows_dir = paths::claude_dir()
+        .unwrap_or_else(|| PathBuf::from("."))
+        .join("workflows");
+
+    if !workflows_dir.exists() {
+        return Ok(Vec::new());
+    }
+
+    let mut files = Vec::new();
+    for entry in std::fs::read_dir(&workflows_dir)? {
+        let entry = entry?;
+        let path = entry.path();
+        if path.extension().and_then(|e| e.to_str()) == Some("json") {
+            files.push(path);
+        }
+    }
+
+    Ok(files)
+}

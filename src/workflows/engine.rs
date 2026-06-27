@@ -1,7 +1,6 @@
 use crate::workflows::definition::{Workflow, State};
 use crate::workflows::tracker;
 use serde::{Deserialize, Serialize};
-use std::path::PathBuf;
 
 /// Current state of a running workflow instance.
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
