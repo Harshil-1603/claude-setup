@@ -19,11 +19,19 @@ pub fn read() -> Result<Value> {
 }
 
 /// Merge new settings into existing settings (additive only).
+///
+/// - For nested objects, recursively merge so new keys are added without
+///   disturbing existing ones.
+/// - For scalar values, only insert if the key does not already exist
+///   (preserves user preferences).
 pub fn merge(existing: &mut Value, new: &Value) {
     if let (Some(existing_obj), Some(new_obj)) = (existing.as_object_mut(), new.as_object()) {
         for (key, value) in new_obj {
-            if existing_obj.contains_key(key) && value.is_object() {
-                merge(existing_obj.get_mut(key).unwrap(), value);
+            if let Some(existing_value) = existing_obj.get_mut(key) {
+                if value.is_object() {
+                    merge(existing_value, value);
+                }
+                // Scalar key exists — skip to preserve user's value
             } else {
                 existing_obj.insert(key.clone(), value.clone());
             }
