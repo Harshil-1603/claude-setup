@@ -42,6 +42,12 @@ claude-eng skill add owner/repo
 
 # Remove a skill
 claude-eng skill remove skill-name
+
+# List available workflows
+claude-eng workflow list
+
+# Start or resume a workflow
+claude-eng workflow run feature-dev
 ```
 
 ## Commands
@@ -53,6 +59,9 @@ claude-eng skill remove skill-name
 | `claude-eng skill search <query>` | Search installed skills |
 | `claude-eng skill add <name>` | Install a skill from registry |
 | `claude-eng skill remove <name>` | Remove an installed skill |
+| `claude-eng workflow list` | List available workflows |
+| `claude-eng workflow status <name>` | Show workflow progress |
+| `claude-eng workflow run <name>` | Start or resume a workflow |
 
 ## Built-in Skills
 
@@ -63,6 +72,14 @@ claude-eng skill remove skill-name
 | `systematic-debugging` | Structured approach to fixing bugs |
 | `verification` | Quality check pipeline |
 | `code-review` | Structured code review |
+
+## Built-in Workflows
+
+| Workflow | Description |
+|----------|-------------|
+| `feature-development` | End-to-end feature development with 6 states |
+| `bug-fix` | Structured bug fixing with 5 states |
+| `refactor` | Safe refactoring with verification at each step |
 
 ## Configuration
 
