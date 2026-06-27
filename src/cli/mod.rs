@@ -12,6 +12,7 @@ pub struct Cli {
     pub command: Commands,
 }
 
+/// Top-level CLI subcommands.
 #[derive(Subcommand)]
 pub enum Commands {
     /// Install or update Claude Engineering OS configuration
@@ -24,6 +25,7 @@ pub enum Commands {
     },
 }
 
+/// Subcommands for managing skills.
 #[derive(Subcommand)]
 pub enum SkillCommands {
     /// List installed skills

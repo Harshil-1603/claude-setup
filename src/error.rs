@@ -41,4 +41,5 @@ pub enum ClaudeEngError {
     Other(#[from] anyhow::Error),
 }
 
+/// Convenience type alias for results using [`ClaudeEngError`].
 pub type Result<T> = std::result::Result<T, ClaudeEngError>;
