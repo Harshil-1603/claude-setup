@@ -1,4 +1,4 @@
-use claude_eng::skills::manifest::parse;
+use claude_setup::skills::manifest::parse;
 
 #[test]
 fn test_parse_full_manifest() {

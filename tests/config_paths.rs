@@ -1,5 +1,5 @@
 // tests/config_paths.rs
-use claude_eng::config::paths;
+use claude_setup::config::paths;
 
 #[test]
 fn test_claude_dir_returns_home_dot_claude() {

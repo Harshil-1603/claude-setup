@@ -1,5 +1,5 @@
 // tests/config_claude_md.rs
-use claude_eng::config::{claude_md, templates};
+use claude_setup::config::{claude_md, templates};
 
 #[test]
 fn test_generate_base_returns_template_content() {

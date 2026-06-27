@@ -1,4 +1,4 @@
-use claude_eng::config::settings;
+use claude_setup::config::settings;
 use tempfile::TempDir;
 use std::fs;
 

@@ -1,5 +1,5 @@
 [package]
-name = "claude-engineering-os"
+name = "claude-setup"
 version = "0.1.0"
 edition = "2021"
 description = "A reusable engineering platform that improves every Claude Code session"
@@ -11,7 +11,7 @@ name = "claude-eng"
 path = "src/main.rs"
 
 [lib]
-name = "claude_eng"
+name = "claude_setup"
 path = "src/lib.rs"
 
 [dependencies]

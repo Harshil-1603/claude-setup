@@ -1,6 +1,6 @@
 use std::fs;
 use tempfile::TempDir;
-use claude_eng::config::paths;
+use claude_setup::config::paths;
 
 fn setup_skills_dir() -> TempDir {
     let temp = TempDir::new().unwrap();
@@ -33,7 +33,7 @@ fn test_search_finds_by_name() {
     let _temp = setup_skills_dir();
     install_test_skill("my-skill", "A test skill", &["test"]);
 
-    let result = claude_eng::skills::search::search_local("my-skill");
+    let result = claude_setup::skills::search::search_local("my-skill");
     assert!(result.is_ok());
 }
 
@@ -42,7 +42,7 @@ fn test_search_finds_by_description() {
     let _temp = setup_skills_dir();
     install_test_skill("my-skill", "A testing skill", &[]);
 
-    let result = claude_eng::skills::search::search_local("testing");
+    let result = claude_setup::skills::search::search_local("testing");
     assert!(result.is_ok());
 }
 
@@ -51,7 +51,7 @@ fn test_search_finds_by_trigger() {
     let _temp = setup_skills_dir();
     install_test_skill("my-skill", "A skill", &["deploy"]);
 
-    let result = claude_eng::skills::search::search_local("deploy");
+    let result = claude_setup::skills::search::search_local("deploy");
     assert!(result.is_ok());
 }
 
@@ -60,6 +60,6 @@ fn test_search_no_match() {
     let _temp = setup_skills_dir();
     install_test_skill("my-skill", "A skill", &["test"]);
 
-    let result = claude_eng::skills::search::search_local("nonexistent");
+    let result = claude_setup::skills::search::search_local("nonexistent");
     assert!(result.is_ok());
 }

@@ -1,5 +1,5 @@
-use claude_eng::verification::config::VerifyConfig;
-use claude_eng::verification::pipeline;
+use claude_setup::verification::config::VerifyConfig;
+use claude_setup::verification::pipeline;
 use std::path::Path;
 
 #[test]

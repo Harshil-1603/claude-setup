@@ -1,4 +1,4 @@
-use claude_eng::git::commit;
+use claude_setup::git::commit;
 
 #[test]
 fn test_validate_conventional_valid() {

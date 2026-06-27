@@ -1,5 +1,5 @@
-use claude_eng::workflows::tracker;
-use claude_eng::workflows::engine::WorkflowInstance;
+use claude_setup::workflows::tracker;
+use claude_setup::workflows::engine::WorkflowInstance;
 use tempfile::TempDir;
 
 fn setup() -> TempDir {
