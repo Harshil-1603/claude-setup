@@ -1,0 +1,43 @@
+name: bug-fix
+description: Structured approach to fixing bugs
+version: "1.0.0"
+
+states:
+  - id: reproduce
+    name: "Reproduce the Bug"
+    actions:
+      - gather_error_info
+      - create_reproduction_case
+      - confirm_reproduction
+    next: isolate
+
+  - id: isolate
+    name: "Isolate the Problem"
+    actions:
+      - narrow_down_location
+      - check_recent_changes
+      - identify_root_cause
+    next: fix
+
+  - id: fix
+    name: "Implement Fix"
+    actions:
+      - write_failing_test
+      - implement_fix
+      - verify_fix_works
+    next: verify
+
+  - id: verify
+    name: "Verify Fix"
+    actions:
+      - run_test_suite
+      - check_no_regressions
+      - manual_verification
+    next: report
+
+  - id: report
+    name: "Report Fix"
+    actions:
+      - document_root_cause
+      - summarize_changes
+      - create_commit

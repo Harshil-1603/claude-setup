@@ -1,5 +1,5 @@
 use claude_eng::workflows::definition::parse;
-use claude_eng::workflows::engine::{advance, create_instance, current_actions, current_state, is_complete, WorkflowInstance};
+use claude_eng::workflows::engine::{advance, create_instance, current_actions, is_complete, WorkflowInstance};
 
 fn test_workflow() -> claude_eng::workflows::definition::Workflow {
     parse(

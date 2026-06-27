@@ -1,4 +1,4 @@
-use claude_eng::workflows::definition::{parse, State, Workflow};
+use claude_eng::workflows::definition::parse;
 
 #[test]
 fn test_parse_valid_workflow() {

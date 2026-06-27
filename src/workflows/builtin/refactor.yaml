@@ -1,0 +1,42 @@
+name: refactor
+description: Safe refactoring with verification at each step
+version: "1.0.0"
+
+states:
+  - id: understand
+    name: "Understand Current Code"
+    actions:
+      - read_and_understand_code
+      - identify_smells
+      - document_current_behavior
+    next: plan
+
+  - id: plan
+    name: "Plan Refactoring"
+    actions:
+      - define_target_structure
+      - identify_risks
+      - plan_incremental_steps
+    next: refactor
+
+  - id: refactor
+    name: "Execute Refactoring"
+    actions:
+      - make_one_small_change
+      - run_tests
+      - commit_if_green
+    next: verify
+
+  - id: verify
+    name: "Final Verification"
+    actions:
+      - run_full_test_suite
+      - check_performance
+      - review_changes
+    next: done
+
+  - id: done
+    name: "Complete"
+    actions:
+      - update_documentation
+      - create_final_commit

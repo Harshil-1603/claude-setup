@@ -1,0 +1,49 @@
+name: feature-development
+description: End-to-end feature development workflow
+version: "1.0.0"
+
+states:
+  - id: understand
+    name: "Understand Requirements"
+    actions:
+      - ask_clarifying_questions
+      - search_existing_code
+      - identify_constraints
+    next: plan
+
+  - id: plan
+    name: "Create Implementation Plan"
+    actions:
+      - identify_files_to_change
+      - consider_edge_cases
+      - present_plan_for_approval
+    next: implement
+
+  - id: implement
+    name: "Implement Changes"
+    actions:
+      - write_code
+      - add_tests
+      - update_docs
+    next: verify
+
+  - id: verify
+    name: "Verify Implementation"
+    actions:
+      - run_tests
+      - check_linting
+      - manual_review
+    next: report
+
+  - id: report
+    name: "Report Progress"
+    actions:
+      - summarize_changes
+      - present_to_user
+    next: done
+
+  - id: done
+    name: "Complete"
+    actions:
+      - create_commit
+      - update_memory
