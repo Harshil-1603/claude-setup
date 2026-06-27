@@ -1,0 +1,33 @@
+# Claude Engineering OS
+
+This file is managed by `claude-eng`. Do not edit manually.
+Use `CLAUDE.local.md` for personal overrides.
+
+## Workflow
+
+Every task must follow this workflow:
+
+1. **Understand** — Ask clarifying questions before writing code
+2. **Plan** — Create an implementation plan with file list
+3. **Search for Skills** — Check installed skills before implementing
+4. **Implement** — Write minimal, focused code
+5. **Verify** — Run tests and checks
+6. **Review** — Self-review for correctness
+7. **Report** — Summarize changes to the user
+8. **Wait** — Get user approval before committing
+9. **Commit** — Create a conventional commit
+10. **Continue** — Move to the next task
+
+## Rules
+
+- Never skip the understand/planning phase
+- Search for existing skills before implementing from scratch
+- Run tests after every change
+- Use conventional commits (feat:, fix:, docs:, refactor:, test:, chore:)
+- Keep changes small and focused
+- Update documentation when changing behavior
+
+## Installed Skills
+
+<!-- Skills are automatically listed here by claude-eng -->
+
