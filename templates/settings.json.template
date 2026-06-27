@@ -1,4 +1,12 @@
 {
   "env": {},
-  "theme": "dark"
+  "theme": "dark",
+  "hooks": {
+    "onSessionStart": [
+      {
+        "type": "command",
+        "command": "claude-eng memory context 2>/dev/null || true"
+      }
+    ]
+  }
 }

@@ -27,6 +27,13 @@ Every task must follow this workflow:
 - Keep changes small and focused
 - Update documentation when changing behavior
 
+## Memory Context
+
+<!-- Automatically injected by `claude-eng memory context` on session start -->
+<!-- This section is updated with recent project memories -->
+
+```
+
 ## Installed Skills
 
 <!-- Skills are automatically listed here by claude-eng -->

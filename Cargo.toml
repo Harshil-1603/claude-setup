@@ -29,6 +29,7 @@ thiserror = "1"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["fmt"] }
 include_dir = "0.7"
+rusqlite = { version = "0.31", features = ["bundled"] }
 urlencoding = "2"
 openssl = { version = "0.10", features = ["vendored"] }
 

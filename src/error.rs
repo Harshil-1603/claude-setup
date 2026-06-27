@@ -37,6 +37,18 @@ pub enum ClaudeEngError {
     #[error("YAML serialization error")]
     YamlError(#[from] serde_yaml::Error),
 
+    #[error("Database error: {0}")]
+    DatabaseError(String),
+
+    #[error("Verification failed: {stage}")]
+    VerificationFailed {
+        stage: String,
+        output: String,
+    },
+
+    #[error("Git repository not found: {path}")]
+    GitRepoNotFound { path: String },
+
     #[error(transparent)]
     Other(#[from] anyhow::Error),
 }

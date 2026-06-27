@@ -1,5 +1,8 @@
 // src/cli/mod.rs
+pub mod git;
 pub mod install;
+pub mod memory;
+pub mod verify;
 pub mod workflow;
 
 use clap::{Parser, Subcommand};
@@ -9,6 +12,10 @@ use crate::error::Result;
 #[derive(Parser)]
 #[command(name = "claude-eng", version, about, long_about = None)]
 pub struct Cli {
+    /// Enable verbose/debug output
+    #[arg(short, long, global = true)]
+    pub verbose: bool,
+
     #[command(subcommand)]
     pub command: Commands,
 }
@@ -29,6 +36,21 @@ pub enum Commands {
     Workflow {
         #[command(subcommand)]
         action: workflow::WorkflowAction,
+    },
+
+    /// Manage persistent memory across sessions
+    Memory {
+        #[command(subcommand)]
+        action: memory::MemoryAction,
+    },
+
+    /// Run verification pipeline (lint, test, build)
+    Verify(verify::VerifyArgs),
+
+    /// Git automation commands
+    Git {
+        #[command(subcommand)]
+        action: git::GitAction,
     },
 }
 
@@ -78,5 +100,8 @@ pub fn dispatch(cli: Cli) -> Result<()> {
             }
         }
         Commands::Workflow { action } => workflow::run(action),
+        Commands::Memory { action } => memory::run(action),
+        Commands::Verify(args) => verify::run(args),
+        Commands::Git { action } => Ok(git::run(action)?),
     }
 }

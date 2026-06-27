@@ -55,6 +55,10 @@ pub fn run(args: InstallArgs) -> Result<()> {
         install_builtin_skills()?;
     }
 
+    // Step 4: Initialize memory database
+    init_memory_db()?;
+    println!("  ✓ Initialized memory database");
+
     println!("\nInstallation complete! Claude Engineering OS is ready.");
     println!("Run `claude-eng --help` to see available commands.");
 
@@ -98,5 +102,11 @@ fn install_builtin_skills() -> Result<()> {
         }
     }
 
+    Ok(())
+}
+
+/// Initialize the memory database at `~/.claude/memory.db`.
+fn init_memory_db() -> Result<()> {
+    crate::memory::store::Store::open_default()?;
     Ok(())
 }
